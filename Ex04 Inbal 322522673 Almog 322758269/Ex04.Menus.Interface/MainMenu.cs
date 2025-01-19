@@ -1,5 +1,4 @@
-﻿using Ex04.Menus.Interface;
-
+﻿
 namespace Ex04.Menus.Interfaces
 {
     public class MainMenu

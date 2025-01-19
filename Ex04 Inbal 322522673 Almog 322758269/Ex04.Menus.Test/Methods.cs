@@ -1,6 +1,6 @@
 ﻿using System;
 using Ex04.Menus.Interfaces;
-namespace Ex04.Menus.Tests
+namespace Ex04.Menus.Test
 {
     public class Methods
     {
@@ -18,11 +18,11 @@ namespace Ex04.Menus.Tests
 
         public void ShowVersion()
         {
-            Console.WriteLine("Version: 24.2.4.9504");
+            Console.WriteLine("Version: 25.1.4.5480");
             Console.ReadKey();
         }
 
-        public void CountCapitals()
+        public void CountLowercase()
         {
             int capitalsCount = 0;
             string userSentence;
@@ -38,12 +38,12 @@ namespace Ex04.Menus.Tests
             }
             foreach (char letter in userSentence)
             {
-                if (char.IsUpper(letter))
+                if (char.IsLower(letter))
                 {
                     capitalsCount++;
                 }
             }
-            string answer = string.Format("The sentence: \"{0}\" contains {1} capital letters.", userSentence, capitalsCount);
+            string answer = string.Format("The sentence: \"{0}\" contains {1} lowercase letters.", userSentence, capitalsCount);
             Console.WriteLine(answer);
             Console.ReadKey();
         }
@@ -102,7 +102,7 @@ namespace Ex04.Menus.Tests
 
         public void Execute()
         {
-            r_Methods.CountCapitals();
+            r_Methods.CountLowercase();
         }
     }
 }

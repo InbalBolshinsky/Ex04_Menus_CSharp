@@ -1,10 +1,10 @@
 ﻿using System;
-using Ex04.Menus.Tests;
+using Ex04.Menus.Test;
 using Ex04.Menus.Events;
 
 namespace Ex04.Menus.Test
 {
-    internal class EventMenu
+    internal class EventsMenu
     {
         private MainMenu m_EventsMainMenu = new MainMenu();
         internal void startEventeMenu()
@@ -22,7 +22,7 @@ namespace Ex04.Menus.Test
             EventsMainMenu.Add(versionAndCapitalsMenuDelegate);
             EventsMainMenu.Add(showDateAndTimeMenuDelegate);
             showVersionItem.ItemSelected += ShowVersion_Operate;
-            countCapitalsItem.ItemSelected += CountCapitals_Operate;
+            countCapitalsItem.ItemSelected += CountLowercase_Operate;
             showDateItem.ItemSelected += ShowDate_Operate;
             showTimeItem.ItemSelected += ShowTime_Operate;
             versionAndCapitalsMenuDelegate.Add(showVersionItem);
@@ -57,10 +57,10 @@ namespace Ex04.Menus.Test
             Methods methods = new Methods();
             methods.ShowVersion();
         }
-        private void CountCapitals_Operate()
+        private void CountLowercase_Operate()
         {
             Methods methods = new Methods();
-            methods.CountCapitals();
+            methods.CountLowercase();
         }
     }
 }

@@ -1,12 +1,92 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Ex04.Menus.Interface
+namespace Ex04.Menus.Interfaces
 {
-    internal class Menu
+    public class Menu : MenuItem, IMenuAction
     {
+        private const int k_FirstLevel = 1;
+        private readonly int r_CurrentLevel;
+        private readonly List<MenuItem> r_MenuItems = new List<MenuItem>();
+        private readonly string r_returnMenuKeyword;
+        private readonly string r_errorMenuKeyword;
+        private readonly bool r_showLevel;
+
+        public int Level
+        {
+            get { return r_CurrentLevel; }
+        }
+
+        public Menu(string title, int level, string returnMassage, string errorMassage, bool showLevel) : base(title)
+        {
+            // $G$ CSS-013 (-10) Input parameters should be in i_PascalCase.
+            r_returnMenuKeyword = returnMassage;
+            r_errorMenuKeyword = errorMassage;
+            r_showLevel = showLevel;
+
+            if (level == 0)
+            {
+                r_CurrentLevel = k_FirstLevel;
+            }
+            else
+            {
+                r_CurrentLevel = level;
+            }
+
+        }
+        public void Add(MenuItem i_MenuItem)
+        {
+            r_MenuItems.Add(i_MenuItem);
+        }
+
+        public override void Execute()
+        {
+            bool isRunning = true;
+
+            while (isRunning)
+            {
+                Console.Clear();
+                Console.WriteLine(Title);
+                Console.WriteLine(new string('=', Title.Length));
+
+                while (isRunning)
+                {
+                    Console.Clear();
+                    Console.WriteLine(Title);
+
+                    if (r_showLevel == true)
+                    {
+                        Console.WriteLine($"[current menu level: {Level}]");
+                    }
+
+                    Console.WriteLine(new string('=', Title.Length));
+
+                    for (int i = 0; i < r_MenuItems.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {r_MenuItems[i].Title}");
+                    }
+
+                    Console.WriteLine($"0. {r_returnMenuKeyword}");
+
+                    if (int.TryParse(Console.ReadLine(), out int choice) && choice >= 0 && choice <= r_MenuItems.Count)
+                    {
+                        if (choice == 0)
+                        {
+                            isRunning = false;
+                        }
+                        else
+                        {
+                            r_MenuItems[choice - 1].Execute();
+                        }
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"{r_errorMenuKeyword}");
+                        Console.ReadLine();
+                    }
+                }
+            }
+        }
     }
 }

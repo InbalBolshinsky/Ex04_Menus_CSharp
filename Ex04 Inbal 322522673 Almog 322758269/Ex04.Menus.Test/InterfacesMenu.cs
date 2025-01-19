@@ -1,6 +1,6 @@
 ﻿using System;
 using Ex04.Menus.Interfaces;
-using Ex04.Menus.Tests;
+using Ex04.Menus.Test;
 
 namespace Ex04.Menus.Test
 {

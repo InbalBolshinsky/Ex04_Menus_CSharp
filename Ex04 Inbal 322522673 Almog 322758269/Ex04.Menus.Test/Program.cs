@@ -1,14 +1,14 @@
 ﻿using System;
 using Ex04.Menus.Test;
 
-namespace Ex04.Menus.Tests
+namespace Ex04.Menus.Test
 {
     public class Program
     {
         public static void Main()
         {
             InterfacesMenu interfacesMenu = new InterfacesMenu();
-            EventMenu eventMenus = new EventMenu();
+            EventsMenu eventMenus = new EventsMenu();
 
             interfacesMenu.StartInterfaceMenu();
             eventMenus.startEventeMenu();
