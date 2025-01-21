@@ -24,7 +24,7 @@ namespace Ex04.Menus.Test
 
         public void CountLowercase()
         {
-            int capitalsCount = 0;
+            int lowercaseCount = 0;
             string userSentence;
 
             Console.WriteLine("Please enter a sentence: ");
@@ -40,14 +40,15 @@ namespace Ex04.Menus.Test
             {
                 if (char.IsLower(letter))
                 {
-                    capitalsCount++;
+                    lowercaseCount++;
                 }
             }
-            string answer = string.Format("The sentence: \"{0}\" contains {1} lowercase letters.", userSentence, capitalsCount);
+            string answer = string.Format("There are {0} lowercase letters in you text", lowercaseCount);
             Console.WriteLine(answer);
             Console.ReadKey();
         }
     }
+
     internal class ShowDateExecutable : IMenuAction
     {
         private readonly Methods r_Methods;
@@ -65,10 +66,9 @@ namespace Ex04.Menus.Test
     internal class ShowTimeExecutable : IMenuAction
     {
         private readonly Methods r_Methods;
-
-        public ShowTimeExecutable(Methods methods)
+        public ShowTimeExecutable(Methods i_Methods)
         {
-            r_Methods = methods;
+            r_Methods = i_Methods;
         }
 
         public void Execute()
@@ -76,13 +76,13 @@ namespace Ex04.Menus.Test
             r_Methods.ShowTime();
         }
     }
+
     internal class ShowVersionExecutable : IMenuAction
     {
         private readonly Methods r_Methods;
-
-        public ShowVersionExecutable(Methods methods)
+        public ShowVersionExecutable(Methods i_Methods)
         {
-            r_Methods = methods;
+            r_Methods = i_Methods;
         }
 
         public void Execute()
@@ -91,13 +91,12 @@ namespace Ex04.Menus.Test
         }
     }
 
-    internal class CountCapitalsExecutable : IMenuAction
+    internal class CountLowercasesExecutable : IMenuAction
     {
         private readonly Methods r_Methods;
-
-        public CountCapitalsExecutable(Methods methods)
+        public CountLowercasesExecutable(Methods i_Methods)
         {
-            r_Methods = methods;
+            r_Methods = i_Methods;
         }
 
         public void Execute()
@@ -106,4 +105,3 @@ namespace Ex04.Menus.Test
         }
     }
 }
-

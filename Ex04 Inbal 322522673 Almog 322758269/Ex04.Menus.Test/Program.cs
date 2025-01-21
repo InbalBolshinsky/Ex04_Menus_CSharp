@@ -1,7 +1,4 @@
-﻿using System;
-using Ex04.Menus.Test;
-
-namespace Ex04.Menus.Test
+﻿namespace Ex04.Menus.Test
 {
     public class Program
     {
@@ -9,7 +6,6 @@ namespace Ex04.Menus.Test
         {
             InterfacesMenu interfacesMenu = new InterfacesMenu();
             EventsMenu eventMenus = new EventsMenu();
-
             interfacesMenu.StartInterfaceMenu();
             eventMenus.startEventeMenu();
         }

@@ -1,13 +1,12 @@
-﻿
-namespace Ex04.Menus.Interfaces
+﻿namespace Ex04.Menus.Interfaces
 {
     public class MainMenu
     {
         private Menu m_Menu = null;
-
         public MainMenu()
         {
         }
+
         public Menu Menu
         {
             get { return m_Menu; }
@@ -24,4 +23,3 @@ namespace Ex04.Menus.Interfaces
         }
     }
 }
-
